@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer">
+  <title>ayde</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-stars" aria-hidden="true"></div>
+  <div class="stars stars-a" aria-hidden="true"></div>
+  <div class="stars stars-b" aria-hidden="true"></div>
+
+  <main class="browser">
+    <header class="topbar">
+      <div class="brand">ayde</div>
+      <div class="tabs" id="tabs" aria-label="Tabs"></div>
+      <button class="new-tab" id="new-tab" type="button" aria-label="New tab">+</button>
+    </header>
+
+    <div class="toolbar">
+      <button class="tool" id="back" type="button" aria-label="Back">‹</button>
+      <button class="tool" id="forward" type="button" aria-label="Forward">›</button>
+      <button class="tool" id="reload" type="button" aria-label="Reload">↻</button>
+      <button class="tool home-tool" id="home" type="button" aria-label="Home">⌂</button>
+      <form class="address" id="address-form" autocomplete="off">
+        <input id="address" type="text" spellcheck="false" autocomplete="off" aria-label="Address or search">
+      </form>
+      <button class="tool" id="settings-button" type="button" aria-label="Settings">⚙</button>
+    </div>
+
+    <section class="viewport" id="viewport">
+      <div class="home-view" id="home-view">
+        <button class="updates-reopen" id="updates-reopen" type="button" aria-label="Open update logs" title="update logs">↻ logs</button>
+        <div class="home-inner">
+          <div class="hero-logo">ayde</div>
+          <p class="privacy-line">private by design · nothing saved by ayde</p>
+          <form class="search-box" id="search-form" autocomplete="off">
+            <input id="search" type="text" placeholder="search the web..." autofocus autocomplete="off" spellcheck="false">
+            <button type="submit" aria-label="Search">↵</button>
+          </form>
+          <div class="search-modes" id="home-modes" aria-label="Search category">
+            <button class="mode active" data-category="all" type="button">All</button>
+            <button class="mode" data-category="sites" type="button">Sites</button>
+            <button class="mode" data-category="images" type="button">Images</button>
+            <button class="mode" data-category="videos" type="button">Videos</button>
+            <button class="mode" data-category="news" type="button">News</button>
+          </div>
+          <p class="hint">Enter to search with DuckDuckGo · results stay in Ayde when the provider permits direct access</p>
+
+          <div class="section-header">quick apps</div>
+          <div class="apps-grid" id="apps-grid">
+            <button class="app" data-url="https://www.youtube.com/" type="button"><span class="icon">▶</span><span>YouTube</span></button>
+            <button class="app" data-url="https://github.com/" type="button"><span class="icon">⌘</span><span>GitHub</span></button>
+            <button class="app" data-url="https://discord.com/app" type="button"><span class="icon">◌</span><span>Discord</span></button>
+            <button class="app" data-url="https://www.tiktok.com/" type="button"><span class="icon">♪</span><span>TikTok</span></button>
+            <button class="app" data-url="https://www.google.com/" type="button"><span class="icon">G</span><span>Google</span></button>
+            <button class="app" data-url="https://x.com/" type="button"><span class="icon">𝕏</span><span>X</span></button>
+            <button class="app" data-url="https://www.roblox.com/" type="button"><span class="icon">R</span><span>Roblox</span></button>
+            <button class="app" data-url="https://play.geforcenow.com/" type="button"><span class="icon">▶</span><span>GeForce</span></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="results-view" id="results-view" hidden>
+        <div class="results-shell">
+          <div class="results-head">
+            <div>
+              <div class="eyebrow">duckduckgo</div>
+              <h1 id="results-title">Search</h1>
+            </div>
+            <button class="small-button" id="results-settings" type="button">Settings</button>
+          </div>
+          <div class="search-box compact">
+            <input id="results-search" type="text" autocomplete="off" spellcheck="false">
+            <button id="results-submit" type="button" aria-label="Search">↵</button>
+          </div>
+          <div class="search-modes" id="results-modes" aria-label="Search category">
+            <button class="mode active" data-category="all" type="button">All</button>
+            <button class="mode" data-category="sites" type="button">Sites</button>
+            <button class="mode" data-category="images" type="button">Images</button>
+            <button class="mode" data-category="videos" type="button">Videos</button>
+            <button class="mode" data-category="news" type="button">News</button>
+          </div>
+          <div id="result-status" class="result-status"></div>
+          <div id="results-list" class="results-list"></div>
+          <div id="pagination" class="pagination" hidden></div>
+        </div>
+      </div>
+
+      <div class="settings-view" id="settings-view" hidden>
+        <div class="settings-shell">
+          <div class="results-head">
+            <div>
+              <div class="eyebrow">ayde</div>
+              <h1>Settings</h1>
+            </div>
+            <button class="small-button" id="close-settings" type="button">Done</button>
+          </div>
+          <div class="setting-card">
+            <div>
+              <strong>Safe Search</strong>
+              <p>Use DuckDuckGo's Safe Search filtering where the provider supports it. This setting lasts only for this Ayde session.</p>
+            </div>
+            <button class="toggle" id="safe-toggle" type="button" aria-pressed="true"><span></span><b>ON</b></button>
+          </div>
+          <div class="setting-card privacy-card">
+            <strong>Privacy</strong>
+            <p>Ayde does not intentionally save search history, browsing history, cookies, localStorage, sessionStorage, IndexedDB, analytics data, saved tabs, search databases, or user profiles. Tabs and navigation state can exist temporarily in memory while this page is open.</p>
+            <p class="muted">Ayde cannot prevent DuckDuckGo or other websites from receiving requests or setting their own cookies.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="search-block-overlay" id="search-block-overlay" hidden>
+        <div class="search-block-card" role="dialog" aria-modal="true" aria-labelledby="search-block-title">
+          <div class="blocked-mark">!</div>
+          <div class="eyebrow">ayde safety filter</div>
+          <h2 id="search-block-title">You can't search this</h2>
+          <p id="search-block-text">That search contains a term that Ayde blocks.</p>
+          <button class="small-button primary" id="close-search-block" type="button">Go back</button>
+        </div>
+      </div>
+
+      <div class="updates-overlay" id="updates-overlay">
+        <div class="updates-card" role="dialog" aria-modal="true" aria-labelledby="updates-title">
+          <div class="eyebrow">ayde</div>
+          <h2 id="updates-title">update logs</h2>
+          <div class="updates-list">
+            <div class="update-item">
+              <span class="update-date">aug 19 2026</span>
+              <p>added update logs panel on launch + reopen button on home</p>
+            </div>
+            <div class="update-item">
+              <span class="update-date">aug 19 2026</span>
+              <p>tweaked media search handling so images/videos show clearer fallback when duckduckgo blocks embedding</p>
+            </div>
+            <div class="update-item">
+              <span class="update-date">earlier</span>
+              <p>private session search via duckduckgo instant answers · tabs · safe search toggle · blocked terms filter</p>
+            </div>
+          </div>
+          <button class="small-button primary" id="close-updates" type="button">got it</button>
+        </div>
+      </div>
+
+      <div class="fallback-view" id="fallback-view" hidden>
+        <iframe id="page-frame" class="page-frame" title="Ayde page viewer" referrerpolicy="no-referrer" hidden></iframe>
+        <div class="fallback-card">
+          <div class="blocked-mark">↗</div>
+          <div class="eyebrow">current tab</div>
+          <h2 id="fallback-title">This page can't be displayed inside Ayde</h2>
+          <p id="fallback-text">The destination controls whether another site can be embedded. Ayde cannot bypass browser security policies such as X-Frame-Options or CSP.</p>
+          <button class="small-button primary" id="continue-current" type="button">Continue to site</button>
+          <button class="small-button" id="return-results" type="button">Back to Ayde</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
