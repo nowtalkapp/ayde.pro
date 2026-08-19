@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer">
+  <title>ayde</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-stars" aria-hidden="true"></div>
+  <div class="stars stars-a" aria-hidden="true"></div>
+  <div class="stars stars-b" aria-hidden="true"></div>
+
+  <main class="browser">
+    <header class="topbar">
+      <div class="brand">ayde</div>
+      <div class="tabs" id="tabs" aria-label="Tabs"></div>
+      <button class="new-tab" id="new-tab" type="button" aria-label="New tab">+</button>
+    </header>
+
+    <div class="toolbar">
+      <button class="tool" id="back" type="button" aria-label="Back">‹</button>
+      <button class="tool" id="forward" type="button" aria-label="Forward">›</button>
+      <button class="tool" id="reload" type="button" aria-label="Reload">↻</button>
+      <button class="tool home-tool" id="home" type="button" aria-label="Home">⌂</button>
+      <form class="address" id="address-form" autocomplete="off">
+        <input id="address" type="text" spellcheck="false" autocomplete="off" aria-label="Address or search">
+      </form>
+    </div>
+
+    <section class="viewport" id="viewport">
+      <div class="home-view" id="home-view">
+        <div class="home-inner">
+          <div class="hero-logo">ayde</div>
+          <p class="privacy-line">private by design · nothing saved by ayde</p>
+          <form class="search-box" id="search-form" autocomplete="off">
+            <input id="search" type="text" placeholder="search the web..." autofocus autocomplete="off" spellcheck="false">
+            <button type="submit" aria-label="Search">↵</button>
+          </form>
+          <p class="hint">Enter to search with DuckDuckGo · links stay in Ayde when possible</p>
+
+          <div class="section-header">quick apps</div>
+          <div class="apps-grid" id="apps-grid">
+            <button class="app" data-url="https://www.youtube.com/" type="button"><span class="icon">▶</span><span>YouTube</span></button>
+            <button class="app" data-url="https://github.com/" type="button"><span class="icon">⌘</span><span>GitHub</span></button>
+            <button class="app" data-url="https://discord.com/app" type="button"><span class="icon">◌</span><span>Discord</span></button>
+            <button class="app" data-url="https://www.tiktok.com/" type="button"><span class="icon">♪</span><span>TikTok</span></button>
+            <button class="app" data-url="https://www.google.com/" type="button"><span class="icon">G</span><span>Google</span></button>
+            <button class="app" data-url="https://x.com/" type="button"><span class="icon">𝕏</span><span>X</span></button>
+            <button class="app" data-url="https://www.roblox.com/" type="button"><span class="icon">R</span><span>Roblox</span></button>
+            <button class="app" data-url="https://play.geforcenow.com/" type="button"><span class="icon">▶</span><span>GeForce</span></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-view" id="page-view" hidden>
+        <iframe id="page-frame" title="Ayde web view" referrerpolicy="no-referrer" sandbox="allow-forms allow-modals allow-popups allow-presentation allow-scripts" loading="eager"></iframe>
+        <div class="blocked" id="blocked" hidden>
+          <div class="blocked-mark">↗</div>
+          <h2>This page won't embed</h2>
+          <p>The site doesn't allow embedded viewing. Ayde didn't save anything — this is just a browser security rule.</p>
+          <button id="open-current" type="button">Open here</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
