@@ -20,7 +20,7 @@ const searchBlockOverlay = document.getElementById('search-block-overlay');
 const searchBlockText = document.getElementById('search-block-text');
 const closeSearchBlock = document.getElementById('close-search-block');
 
-const BLOCKED_SEARCH_TERMS = ['minor', 'child', 'kid', 'illegal', 'drugs', 'porn', 'explicit', 'nude', 'nudity', 'sexual', 'suicide', 'self-harm', 'self harm', 'gore', 'graphic violence', 'weapon', 'weapons'];
+const BLOCKED_SEARCH_TERMS = ['minor', 'child', 'kid', 'illegal', 'drugs', 'suicide', 'self-harm', 'self harm', 'gore', 'graphic violence'];
 
 const tabs = [];
 let activeId = null;
